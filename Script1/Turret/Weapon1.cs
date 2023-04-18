@@ -31,6 +31,7 @@ public class Weapon1 : MonoBehaviour
     public GameObject Gun;
     
     public Transform firePoint;
+    public Transform firePoint1;
 
     void Start()
     {
@@ -88,6 +89,9 @@ public class Weapon1 : MonoBehaviour
                 Shoot();
                 fireCountdown = 1f / fireRate;
 
+                Shoot1();
+                fireCountdown = 1f / fireRate;
+
             }
         }
 
@@ -121,6 +125,15 @@ public class Weapon1 : MonoBehaviour
     void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+        if (bullet != null)
+            bullet.Seek(target);
+    }
+
+    void Shoot1()
+    {
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)

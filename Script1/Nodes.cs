@@ -109,8 +109,8 @@ public class Nodes : MonoBehaviour
         GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgraded2Prefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret;
 
-        turretBlueprint.prefab = turretBlueprint.upgraded2Prefab;
         // Upgrade blueprint
+        isUpgraded = true;
         isUpgraded1 = true;
 
         Debug.Log("Turret upgraded again");
